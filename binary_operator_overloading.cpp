@@ -2,10 +2,10 @@
 using namespace std;
 class Complex
 {
-    int real;
-    int imaginary;
     public:
-    Complex()
+    int real,imaginary;
+    //Default Constructor
+    Complex()  
     {
         this->real=0;
         this->imaginary=0;
@@ -15,38 +15,33 @@ class Complex
         this->real=r;
         this->imaginary=i;
     }
-    Complex operator+(Complex &c1)
+    //Operator overloading (+) to perform addition of two complex numbers
+    //Call by reference
+    Complex operator+(Complex &c2)
     {
-        Complex c2;
-        c2.real=this->real+c1.real;
-        c2.imaginary=this->imaginary+c1.imaginary;
-        return c2;
+        Complex c3; //new object of class Complex to store the value of addition of complex numbers
+        c3.real=this->real+c2.real;  //this->real refers to the real part of first complex number and c2.real refers to the real part of second complex number 
+        c3.imaginary=this->imaginary+c2.imaginary;  //same as real part we are doing for imaginary part
+
+        return c3;
     }
-    Complex operator-(Complex &c3)
+    //Operator overloading of - operator
+    Complex operator-(Complex &c2)
     {
         Complex c4;
-        c4.real=this->real-c3.real;
-        c4.imaginary=this->imaginary-c3.imaginary;
+        c4.real=this->real-c2.real;
+        c4.imaginary=this->imaginary-c2.imaginary;
         return c4;
-    }
-    void display_add()
-    {
-        cout<<real<<" + "<<imaginary<<"i"<<endl;
-    }
-    void display_sub()
-    {
-        cout<<real<<" - "<<imaginary<<"i"<<endl;
     }
 };
 int main()
 {
-    Complex c1(2,5);
-    Complex c2(1,3);
-    Complex c3;
-    Complex c4;
-    c3=c1+c2;
-    c4=c1-c2;
-    c3.display_add();
-    c4.display_sub();
-    return 0;
+    Complex C1(8,9);
+    Complex C2(10,10);
+    Complex C3;
+    C3=C1+C2;
+    cout<<"The resultant complex number after addition is "<<C3.real<<" + "<<C3.imaginary<<"i"<<endl;
+    Complex C4;
+    C4=C1-C2;
+    cout<<"The resultant complex number after subtraction is "<<C4.real<<" - "<<C4.imaginary<<"i"<<endl;
 }

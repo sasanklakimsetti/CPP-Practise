@@ -1,30 +1,28 @@
+//Array of objects
 #include<iostream>
 using namespace std;
-class Student
+class Array
 {
-    private:
-    string name;
-    int reg_no;
     public:
-    void getData()
+    int value;
+    void display()
     {
-        cout<<"Enter name: ";cin>>name;
-        cout<<"Enter reg_no: ";cin>>reg_no;
-    }
-    void putdata()
-    {
-        cout<<name<<endl<<reg_no<<endl;
+        cout<<value<<" ";
     }
 };
 int main()
 {
-    Student s[5];
-    for(int i=0;i<5;i++)
+    Array arr[1024];
+    int n;
+    cout<<"Enter the size of the array: ";cin>>n;
+    cout<<endl<<"Enter elements of array: ";
+    for(int i=0;i<n;i++)
     {
-        s[i].getData();
+        cin>>arr[i].value;
     }
-    for(int i=0;i<5;i++)
+    cout<<endl<<"The array is ";
+    for(int i=0;i<n;i++)
     {
-        s[i].putdata();
+        arr[i].display();
     }
 }
