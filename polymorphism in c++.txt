@@ -1,0 +1,27 @@
+Polymorphism:  Combination of poly + morphs i.e. many forms for one.
+
+Types:
+
+Compiler-time polymorphism  :   Function overloading, Operator Overloading
+
+Run time polymorphism  :  Virtual function
+
+
+1. Function Overloading:
+   
+*When there are multiple functions with the same name but different parameters, then the function are said to be overloaded, hence this is known as Function overloading
+*Functions can be overloaded by changing the number of arguments or/and changing the type of arguments. In simple terms, it is a feature of object-oriented programming providing many functions that have the same name but distinct parameters when numerous tasks are listed under one function name.
+*There are certainn rules of function overloading that should be followed while overloading a function.
+
+
+2.  Operator Overloading: 
+
+*The ability to provide the operators with special  meaning for a data type.
+
+
+
+Runtime Polymorphism: 
+
+*Runtime polymorphism also referred to as dynamic polymorphism is usually achieved by function overriding.
+*Function overriding occurs when a derived class has a definition for one of the member functions of the base class.
+*The base function is said to be overridden.

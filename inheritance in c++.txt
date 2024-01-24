@@ -1,0 +1,133 @@
+Acquiring properties of parent/base class by derived/child class
+decrease in chance of error and data redundancy
+
+
+syntax: class <derived_class_name> : <access_specifier> <base_class_name> {//body}
+
+//access_specifier: protected/public/private
+
+Note: A derived class doesn't inherit access to private data members. However, it does inherit a full parent object, which contains any private members which that class declares.
+
+When a base class is privately inherited by the derived class, public members of the base class becomes the private members of the derived class and therefore, the public members of the base class can only be accessed by the member functions of the derived class.
+
+They are inaccessible to the objects of the derived class.
+On the other hand, when the base class is publicly inherited by the derived class,
+public members of the base class also become the public members of the derived
+class.
+Therefore, the public members of the base class are accessible by the objects of the
+derived class as well as by the member functions of the derived class.
+
+example:
+class shape
+{
+};
+class Triangle:private shape
+{
+};
+
+Types of inheritance in C++ 
+-->Single Inheritance
+-->Multiple Inheritance
+-->Hierarchial Inheritance
+-->Hybrid Inheritance
+-->Multilevel Inheritance
+
+1.Single Inheritance:
+-->In single inheritance, a class is allowed to inherit from only one class i.e. one subclass is inherited by one base class only.
+
+class A(base class)  -->  class B(derived class)
+
+syntax(example): 
+
+class A
+{
+};
+class B:public class A
+{
+};
+
+
+2.Multiple Inheritance:
+-->A class can inherit from more than one class i.e. one subclass is inherited from more than one base class.
+
+class B(base class 1) --> class A(derived class)  &  class C(base class 2) --> class A(derived class)
+
+-->Here, the number of base classes will be seperated by a comma(',') and the access mode for every base class must be specified.
+
+syntax(example):
+class B
+{
+};
+class C
+{
+};
+class A:public B, public C
+{
+};
+
+3.Multilevel Inheritance:
+-->In this type of inheritance, a derived class is created from another derived class.
+
+class C(base class 2) --> class B(base class 1) --> class A(derived class)
+
+syntax(example):
+class C
+{
+};
+class B:public C
+{
+};
+class A:public B
+{
+};
+
+4.Hierarchial Inheritance:
+-->In this type of inheritance, more than one subclass is inherited form a single base class i.e. more than one derived class is created from a single base class.
+
+class G --> class B --> class C
+class G --> class B --> class A
+class G --> class E --> class D
+class G --> class E --> class F
+
+syntax(example):
+class G
+{
+};
+class B:public class A
+{
+};
+class C:public class B
+{
+};
+class A:public class B
+{
+};
+class E:public class G
+{
+};
+class D:public class E
+{
+};
+class F:public class E
+{
+};
+
+
+5.Hybrid Inheritance(virtual):
+-->It is implemented by combining more than one type of inheritance.
+ex: combining hierarchial inheritance and multiple inheritance.
+
+class F-->class B-->class A
+class F-->class B-->class C
+class G-->class E
+class F-->class E 
+
+
+Dealing with ambiguity:
+
+There might be a chance that parent class and derived class have same function with same names i.e. class A has function display() and class B has function display(). this will be a confusion to the compiler that which function belongs to which class.
+
+To resolve this, we need to use scope resolution while calling the function.
+
+A::display()   --> signifies that the function belongs to class A
+B::display()   --> signifies that the function belongs to class B
